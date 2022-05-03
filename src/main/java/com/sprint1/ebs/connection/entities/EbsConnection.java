@@ -1,5 +1,7 @@
 package com.sprint1.ebs.connection.entities;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -33,7 +35,7 @@ public class EbsConnection {
 	private Long connID;
 	
 	@OneToMany
-	private Bill bill;
+	private List<Bill> bill;
 
 	@ManyToOne
 	private Customer customer;

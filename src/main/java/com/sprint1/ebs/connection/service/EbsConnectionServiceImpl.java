@@ -1,34 +1,27 @@
 package com.sprint1.ebs.connection.service;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.sprint1.ebs.connection.entities.EbsConnection;
-import com.sprint1.ebs.connection.exception.EbsConnectionIDNotFoundException;
+import com.sprint1.ebs.connection.exception.EbsCustomerIDNotFoundException;
 import com.sprint1.ebs.connection.repo.EbsConnectionRepository;
 
+@Service
 public class EbsConnectionServiceImpl implements EbsConnectionService{
 	
 	@Autowired 
-	private EbsConnectionRepository repo;
+    EbsConnectionRepository repo;
 
 	@Override
-	public EbsConnection getEbsConnection(Long id) throws EbsConnectionIDNotFoundException {
+	public EbsConnection createEbsConnection(EbsConnection connection) {
 		// TODO Auto-generated method stub
-		return null;
+		return repo.save(connection);
 	}
 
 	@Override
-	public List<EbsConnection> listAllConnection() {
+	public EbsConnection getEbsConnectionById(Long id) throws EbsCustomerIDNotFoundException {
 		// TODO Auto-generated method stub
-		return null;
+		return repo.findById(id).orElseThrow(EbsCustomerIDNotFoundException::new);
 	}
-
-	@Override
-	public EbsConnection findById(long custID) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 }
