@@ -51,9 +51,11 @@ public class EbsConnectionController {
 	//}
 	
 	@GetMapping("/customer/{custID}/connection/{connID}/billing")
-	public ResponseEntity<List<Bill>> getAllBillForConnection(@PathVariable("id") Long connID) {
-		List<Bill> bill = new ArrayList<>();
-		return template.exchange("http://localhost:9898/electricity-billing-service/billing/connection/{connID}/list-all",HttpMethod.GET,null,new ParameterizedTypeReference<List<Bill>>() {
-		});
+	public ResponseEntity<List<Bill>> getAllBillForConnection(@PathVariable("id") Long connID) throws EbsConnectionIDNotFoundException {
+	List<Bill> bill = new ArrayList<>();
+	EbsConnection conn= service.listByID(connID);
+	return template.exchange("http://localhost:9898/electricity-billing-service/billing/connection/{conn}/list-all",HttpMethod.GET,null,new ParameterizedTypeReference<List<Bill>>() {
+	 //return template.exchange("http://localhost:9898/electricity-billing-service/billing/connection/{connID}/list-all",HttpMethod.GET,null,new ParameterizedTypeReference<List<Bill>>() {
+	  });
 	}
 }
