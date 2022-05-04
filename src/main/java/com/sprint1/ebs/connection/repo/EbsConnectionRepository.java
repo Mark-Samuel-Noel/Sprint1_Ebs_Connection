@@ -12,4 +12,6 @@ public interface EbsConnectionRepository extends JpaRepository<EbsConnection, Lo
 	@Query
 	List<EbsConnection> findByCustomerId(@Param (value="custid") Long custid);
 	
+	@Query("SELECT e FROM EbsConnection e WHERE e.customer.userID = :custID")
+    List<EbsConnection> findByCustomer(Long custID);
 }

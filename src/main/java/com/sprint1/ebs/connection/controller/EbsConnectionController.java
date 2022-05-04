@@ -41,9 +41,8 @@ public class EbsConnectionController {
 	}
 	
 	@GetMapping("/customer/{custID}/connection")
-	public List<EbsConnection> getEbsConnection(@PathVariable("id")Long custID) throws EbsCustomerIDNotFoundException {
-		EbsConnection [] ebsarr = template.getForObject(null, EbsConnection[].class);
-		return Arrays.asList(ebsarr);
+	public List<EbsConnection> getEbsConnection(@PathVariable("custID")Long custID) throws EbsCustomerIDNotFoundException {
+		return service.getEbsConnectionByCustomerID(custID);
 	}
 		//List<Connection> connection = new ArrayList<>();
 		//return template.exchange("localhost:9898/electricity-billing-service/billing/connection/{connID}/list-all",HttpMethod.GET,null,new ParameterizedTypeReference<List<Connection>>() {
@@ -51,11 +50,9 @@ public class EbsConnectionController {
 	//}
 	
 	@GetMapping("/customer/{custID}/connection/{connID}/billing")
-	public ResponseEntity<List<Bill>> getAllBillForConnection(@PathVariable("id") Long connID) throws EbsConnectionIDNotFoundException {
-	List<Bill> bill = new ArrayList<>();
+	public List<Bill> getAllBillForConnection(@PathVariable("id") Long connID) throws EbsConnectionIDNotFoundException {
 	EbsConnection conn= service.listByID(connID);
-	return template.exchange("http://localhost:9898/electricity-billing-service/billing/connection/{conn}/list-all",HttpMethod.GET,null,new ParameterizedTypeReference<List<Bill>>() {
-	 //return template.exchange("http://localhost:9898/electricity-billing-service/billing/connection/{connID}/list-all",HttpMethod.GET,null,new ParameterizedTypeReference<List<Bill>>() {
-	  });
+	Bill[] bill = template.getForObject("http://localhost:9898/electricity-billing-service/billing/connection/{conn}/list-all",Bill[].class);
+	 return Arrays.asList(bill);
 	}
 }

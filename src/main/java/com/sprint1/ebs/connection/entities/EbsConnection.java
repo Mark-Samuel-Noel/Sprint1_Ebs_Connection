@@ -22,11 +22,11 @@ enum EconnectionType{
 	phase1, phase2;
 	}
 	
+@Entity
 @Table(name="connection")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
 
 
 public class EbsConnection {
