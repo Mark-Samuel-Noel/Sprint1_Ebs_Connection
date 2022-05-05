@@ -11,17 +11,14 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class Payment {
-	@Id
-	@GeneratedValue
+
 	private Long payment_id;
 	
-	@OneToOne
-	private Bill bill;
+	private Long billId;
 
 	private LocalDate paymentDate;
 }

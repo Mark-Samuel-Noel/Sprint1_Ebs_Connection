@@ -13,15 +13,12 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 
 public class Bill {
     
-	@Id
-	@GeneratedValue
     private Long bill_id;
     private double units;
     private LocalDate billGenerationDate;
@@ -29,6 +26,5 @@ public class Bill {
     private LocalDate endDate;
     private boolean status; 
     
-    @ManyToOne
-     private EbsConnection ebsconnection;
+     private Long ebsconnectionId;
 }

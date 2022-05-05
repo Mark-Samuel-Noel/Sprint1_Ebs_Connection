@@ -12,7 +12,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Entity
 @Getter
 @Setter
 @NoArgsConstructor
@@ -23,6 +22,5 @@ public class Customer extends User{
 	private String phoneNumber;
 	private String custAddress;
 	
-	@OneToMany
-	private List<EbsConnection> ebsConnections;
+	private List<Long> ebsConnectionId;
 }

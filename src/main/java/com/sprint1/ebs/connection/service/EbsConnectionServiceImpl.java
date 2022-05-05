@@ -18,7 +18,6 @@ public class EbsConnectionServiceImpl implements EbsConnectionService{
 
 	@Override
 	public EbsConnection createEbsConnection(EbsConnection connection) {
-		// TODO Auto-generated method stub
 		return repo.save(connection);
 	}
 
@@ -37,6 +36,6 @@ public class EbsConnectionServiceImpl implements EbsConnectionService{
 	@Override
 	public List<EbsConnection> getEbsConnectionByCustomerID(Long custID) {
 		// TODO Auto-generated method stub
-		return repo.findByCustomer(custID);
+		return repo.findByCustomerID(custID);
 	}
 }
