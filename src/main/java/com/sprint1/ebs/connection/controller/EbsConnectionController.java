@@ -52,7 +52,8 @@ public class EbsConnectionController {
 	@GetMapping("/customer/{custID}/connection/{connID}/billing")
 	public List<Bill> getAllBillForConnection(@PathVariable("id") Long connID) throws EbsConnectionIDNotFoundException {
 	EbsConnection conn= service.listByID(connID);
-	Bill[] bill = template.getForObject("http://localhost:9898/electricity-billing-service/billing/connection/{conn}/list-all",Bill[].class);
-	 return Arrays.asList(bill);
+	//Bill[] bill = template.getForObject("http://localhost:9898/electricity-billing-service/billing/connection/{conn}/list-all",Bill[].class);
+	// return Arrays.asList(bill);
+	return null;
 	}
 }

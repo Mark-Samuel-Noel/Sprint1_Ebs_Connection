@@ -38,7 +38,7 @@ public class EbsConnection {
 	private Long connID;
 	
 	@ElementCollection
-	private List<Long> billId;
+	private List<Long> billID;
 	private Long customerID;
 
 	@Enumerated(EnumType.STRING)

@@ -16,9 +16,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Payment {
 
-	private Long payment_id;
+	private Long paymentID;
 	
-	private Long billId;
+	private Long billID;
 
 	private LocalDate paymentDate;
 }

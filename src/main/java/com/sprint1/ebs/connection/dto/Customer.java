@@ -22,5 +22,5 @@ public class Customer extends User{
 	private String phoneNumber;
 	private String custAddress;
 	
-	private List<Long> ebsConnectionId;
+	private List<Long> ebsConnectionID;
 }

@@ -19,12 +19,12 @@ import lombok.NoArgsConstructor;
 
 public class Bill {
     
-    private Long bill_id;
+    private Long billID;
     private double units;
     private LocalDate billGenerationDate;
     private LocalDate startDate;
     private LocalDate endDate;
     private boolean status; 
     
-     private Long ebsconnectionId;
+     private Long ebscCnnectionID;
 }
