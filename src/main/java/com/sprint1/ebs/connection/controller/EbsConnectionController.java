@@ -15,6 +15,11 @@ import com.sprint1.ebs.connection.exception.EbsCustomerIDNotFoundException;
 import com.sprint1.ebs.connection.entities.EbsConnection;
 import com.sprint1.ebs.connection.service.EbsConnectionService;
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 345f67ea8b04b5f6181c577aa997970c18b397ca
 @RestController
 @RequestMapping("/connection")
 public class EbsConnectionController {
@@ -34,4 +39,20 @@ public class EbsConnectionController {
 	public List<EbsConnection> getEbsConnection(@PathVariable("custID")Long custID) throws EbsCustomerIDNotFoundException {
 		return service.getEbsConnectionByCustomerID(custID);
 	}
+<<<<<<< HEAD
 }
+=======
+		//List<Connection> connection = new ArrayList<>();
+		//return template.exchange("localhost:9898/electricity-billing-service/billing/connection/{connID}/list-all",HttpMethod.GET,null,new ParameterizedTypeReference<List<Connection>>() {
+		//});
+	//}
+	
+	@GetMapping("/customer/{custID}/connection/{connID}/billing")
+	public List<Bill> getAllBillForConnection(@PathVariable("id") Long connID) throws EbsConnectionIDNotFoundException {
+	EbsConnection conn= service.listByID(connID);
+	//Bill[] bill = template.getForObject("http://localhost:9898/electricity-billing-service/billing/connection/{conn}/list-all",Bill[].class);
+	// return Arrays.asList(bill);
+	return null;
+	}
+}
+>>>>>>> 345f67ea8b04b5f6181c577aa997970c18b397ca

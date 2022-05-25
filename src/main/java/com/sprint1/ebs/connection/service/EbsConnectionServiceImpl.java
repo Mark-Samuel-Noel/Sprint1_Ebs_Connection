@@ -27,6 +27,10 @@ public class EbsConnectionServiceImpl implements EbsConnectionService{
 
 	@Override
 	public List<EbsConnection> getEbsConnectionByCustomerID(Long custID) {
+<<<<<<< HEAD
+=======
+		// TODO Auto-generated method stub
+>>>>>>> 345f67ea8b04b5f6181c577aa997970c18b397ca
 		return repo.findByCustomerID(custID);
 	}
 }

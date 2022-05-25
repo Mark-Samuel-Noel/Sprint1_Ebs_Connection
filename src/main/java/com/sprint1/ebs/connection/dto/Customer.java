@@ -15,5 +15,9 @@ public class Customer extends User{
 	private String custName;
 	private String phoneNumber;
 	private String custAddress;
+<<<<<<< HEAD
+=======
+	
+>>>>>>> 345f67ea8b04b5f6181c577aa997970c18b397ca
 	private List<Long> ebsConnectionID;
 }
