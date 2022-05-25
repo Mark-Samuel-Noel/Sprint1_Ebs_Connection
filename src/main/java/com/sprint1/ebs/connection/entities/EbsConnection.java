@@ -2,17 +2,13 @@ package com.sprint1.ebs.connection.entities;
 
 import java.util.List;
 
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
-import com.sprint1.ebs.connection.dto.Bill;
-import com.sprint1.ebs.connection.dto.Customer;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -22,26 +18,22 @@ enum EconnectionType{
 	phase1, phase2;
 	}
 	
-@Table(name="connection")
+@Entity
+@Table(name="ebs_connection1")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
-
 
 public class EbsConnection {
 	@Id
 	@GeneratedValue
 	private Long connID;
 	
-	@OneToMany
-	private List<Bill> bill;
+	@ElementCollection
+	private List<Long> billID;
+	private Long customerID;
 
-	@ManyToOne
-	private Customer customer;
-	
 	@Enumerated(EnumType.STRING)
-	
 	private EconnectionType type;
 	
 }

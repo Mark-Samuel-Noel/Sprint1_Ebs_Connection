@@ -10,6 +10,5 @@ import com.sprint1.ebs.connection.entities.EbsConnection;
 
 public interface EbsConnectionRepository extends JpaRepository<EbsConnection, Long>{
 	@Query
-	List<EbsConnection> findByCustomerId(@Param (value="custid") Long custid);
-	
+	List<EbsConnection> findByCustomerID(@Param (value="userid") Long custid);
 }
